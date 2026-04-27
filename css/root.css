@@ -1,7 +1,7 @@
-
 /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); */
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 /* Exact Design Tokens */
 :root {
     --bg-primary: #03030a;
@@ -52,10 +52,14 @@ body {
     overflow-x: hidden;
     font-family: var(--secondary-font);
 }
-h1, h2, h3{
+
+h1,
+h2,
+h3 {
     font-family: var(--primary-font);
 }
-p{
+
+p {
     font-size: 16px;
 }
 
@@ -79,67 +83,55 @@ p{
 
 
 .btn {
-      padding: 13px 30px;
-      border-radius: 35px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.04);
-      color: white;
-      text-decoration: none;
-      transition: 0.3s ease;
-      backdrop-filter: blur(10px);
-    }
+    padding: 13px 30px;
+    border-radius: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    color: white;
+    text-decoration: none;
+    transition: 0.3s ease;
+    backdrop-filter: blur(10px);
+    font-family: var(--secondary-font);
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: -0.2px;
+    transition: all 0.35s ease;
+}
 
-    .btn-primary {
-      background: linear-gradient(135deg, #6f73ff 0%, #4f55ff 55%, #6d72ff 100%);
-      border: 1px solid rgba(150,155,255,0.28);
-      color: #ffffff;
-      box-shadow:
-        0 0 20px rgba(103,110,255,0.45),
-        0 0 50px rgba(85,92,255,0.25),
-        inset 0 1px 1px rgba(255,255,255,0.28);
-    }
+.btn:hover {
+    transform: translateY(-3px);
+}
 
-    .btn:hover {
-      transform: translateY(-3px);
-    }
-.btn {
-      font-family: var(--secondary-font);
-      font-weight: 500;
-      font-size: 16px;
-      letter-spacing: -0.2px;
-      transition: all 0.35s ease;
-    }
+.btn-primary {
+    background: linear-gradient(135deg, var(--button-primary-start), var(--button-primary-end));
+    border: 1px solid rgba(160, 165, 255, 0.35);
+    color: #ffffff;
+    box-shadow:
+        0 0 35px rgba(108, 115, 255, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--button-primary-start), var(--button-primary-end));
-      border: 1px solid rgba(160,165,255,0.35);
-      color: #ffffff;
-      box-shadow:
-        0 0 35px rgba(108,115,255,0.55),
-        inset 0 1px 0 rgba(255,255,255,0.22);
-    }
+.btn-primary:hover {
+    background: linear-gradient(135deg, #8186ff 0%, #5c62ff 50%, #787cff 100%);
+    box-shadow:
+        0 0 28px rgba(124, 130, 255, 0.75),
+        0 0 65px rgba(95, 101, 255, 0.45),
+        0 12px 30px rgba(88, 94, 255, 0.35);
+    transform: translateY(-3px) scale(1.02);
+}
 
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #8186ff 0%, #5c62ff 50%, #787cff 100%);
-      box-shadow:
-        0 0 28px rgba(124,130,255,0.75),
-        0 0 65px rgba(95,101,255,0.45),
-        0 12px 30px rgba(88,94,255,0.35);
-      transform: translateY(-3px) scale(1.02);
-    }
+.btn:not(.btn-primary) {
+    background: var(--button-secondary-bg);
+    border: 1px solid var(--button-border);
+    color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+}
 
-    .btn:not(.btn-primary) {
-      background: var(--button-secondary-bg);
-      border: 1px solid var(--button-border);
-      color: rgba(255,255,255,0.85);
-      backdrop-filter: blur(20px);
-    }
-
-    .btn:not(.btn-primary):hover {
-      background: var(--button-secondary-hover);
-      border-color: rgba(145,150,255,0.75);
-      box-shadow: 0 0 25px rgba(114,119,255,0.18);
-    }
+.btn:not(.btn-primary):hover {
+    background: var(--button-secondary-hover);
+    border-color: rgba(145, 150, 255, 0.75);
+    box-shadow: 0 0 25px rgba(114, 119, 255, 0.18);
+}
 
 
 .hero {
@@ -173,7 +165,7 @@ p{
     width: 95%;
     max-width: 1240px;
     z-index: 9999;
-  transition: all 0.6s ease;
+    transition: all 0.6s ease;
 }
 
 .navbar-container {
@@ -374,28 +366,28 @@ p{
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0b0b10;
+    background: #0b0b10;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #8b5cf6, #6d28d9);
-  border-radius: 20px;
-  border: 2px solid #0b0b10;
-  cursor: grab;
+    background: linear-gradient(180deg, #8b5cf6, #6d28d9);
+    border-radius: 20px;
+    border: 2px solid #0b0b10;
+    cursor: grab;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #9f67ff, #7c3aed);
+    background: linear-gradient(180deg, #9f67ff, #7c3aed);
 }
 
 /* Firefox */
 * {
-  scrollbar-width: thin;
-  scrollbar-color: #8b5cf6 #0b0b10;
+    scrollbar-width: thin;
+    scrollbar-color: #8b5cf6 #0b0b10;
 }
 
 /* ================= MOBILE ================= */
