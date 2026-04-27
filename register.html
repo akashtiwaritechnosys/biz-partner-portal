@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become a Partner | Biz Partner Hub</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="">
+
+    <div class="register-body">
+        <div class="register-card">
+            <div class="logo-area">
+                <i class="fa-solid fa-house-user"></i>
+                <h2 id="step-title">Create your account</h2>
+                <p id="step-desc">Join 500+ partners across the globe and start earning high commissions today.</p>
+                <div id="success-actions" style="display: none; margin-top: 25px; justify-content: center;">
+                    <a href="index.html" class="btn" style="max-width: 200px;">Go to Home</a>
+                </div>
+            </div>
+
+            <div class="progress-container" id="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+
+            <form id="registrationForm">
+                <!-- Step 0: Initial Account -->
+                <div class="form-step active" id="step-0">
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="account_type" value="individual" checked
+                                onclick="toggleCompanyField('individual')">
+                            Individual
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="account_type" value="company"
+                                onclick="toggleCompanyField('company')">
+                            Company
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="John Doe" id="reg-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="email" placeholder="you@company.com" id="reg-email" required style="flex: 1;">
+                            <button type="button" class="btn"
+                                style="width: auto; padding: 0 20px; font-size: 12px; height: 50px; white-space: nowrap;"
+                                id="send-otp-btn" onclick="sendOTP()">Send OTP</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="otp-field-wrap" style="display: none; max-width: 350px;">
+                        <label>Enter 6-Digit OTP</label>
+                        <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+                            <input type="text" placeholder="123456" id="reg-otp"
+                                style="flex: 1; letter-spacing: 5px; text-align: center; font-weight: 800; padding: 10px 12px; font-size: 14px;">
+                            <button type="button" class="btn"
+                                style="width: auto; padding: 0 15px; font-size: 11px; height: 42px; background: #4ade80;"
+                                id="verify-otp-btn" onclick="verifyInlineOTP()">Verify</button>
+                        </div>
+                        <small style="color: #4ade80; display: none; font-weight: 700; font-size: 11px;"
+                            id="otp-success-msg"><i class="fa-solid fa-circle-check"></i> Email Verified
+                            Successfully</small>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                        <div class="form-group" id="company-field-wrap">
+                            <label>Company Name</label>
+                            <input type="text" placeholder="Your company name" id="reg-company-init">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Solutions Interested In</label>
+                        <div class="brand-selection" style="grid-template-columns: repeat(2, 1fr);">
+                            <div class="brand-pill" onclick="this.classList.toggle('selected')">Mobile App Dev</div>
+                            <div class="brand-pill" onclick="this.classList.toggle('selected')">Website Dev</div>
+                            <div class="brand-pill" onclick="this.classList.toggle('selected')">Sitecore Dev</div>
+                            <div class="brand-pill" onclick="this.classList.toggle('selected')">CRM Implementation</div>
+                            <div class="brand-pill" onclick="this.classList.toggle('selected')">Cloud Services</div>
+                            <div class="brand-pill" onclick="this.classList.toggle('selected')">UI/UX Design</div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn" id="create-acc-btn" onclick="submitApp()" disabled
+                        style="opacity: 0.5; cursor: not-allowed;">Create Account</button>
+                    <div class="auth-footer">
+                        Already have an account? <a href="login.html">Sign in</a>
+                    </div>
+
+
+                    <div class="form-step text-center" id="step-4" style="text-align: center;">
+                        <div
+                            style="width: 70px; height: 70px; background: rgba(74, 222, 128, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; color: #4ade80; font-size: 28px;">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <h3 style="margin-bottom: 10px;">Account Created Successfully</h3>
+                        <p style="color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 30px;">
+                            Welcome to the Biz Partner Hub! Your account is now active. You can start exploring the
+                            ecosystem and managing your partner profile.
+                        </p>
+                        <a href="dashboard.html" class="btn">Go to Dashboard</a>
+                    </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleCompanyField(type) {
+            const wrap = document.getElementById('company-field-wrap');
+            const input = document.getElementById('reg-company-init');
+
+            if (type === 'company') {
+                wrap.style.display = 'block';
+                input.setAttribute('required', 'true');
+            } else {
+                wrap.style.display = 'none';
+                input.removeAttribute('required');
+            }
+        }
+
+        function showSuccessToast(msg) {
+            const toast = document.createElement('div');
+            toast.className = 'success-toast';
+            toast.innerHTML = `<i class="fa-solid fa-circle-check" style="font-size: 20px;"></i> <span>${msg}</span>`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.classList.add('active'), 100);
+            setTimeout(() => {
+                toast.classList.remove('active');
+                setTimeout(() => toast.remove(), 600);
+            }, 4000);
+        }
+
+        function nextStep(step) {
+            if (step === 1) {
+                showSuccessToast("Account Created Successfully!");
+            }
+            // Update Title/Desc
+            const title = document.getElementById('step-title');
+            const desc = document.getElementById('step-desc');
+            const progress = document.getElementById('progress-container');
+            const bar = document.getElementById('progress-bar');
+
+            if (step === 0) {
+                title.innerText = "Create your account";
+                desc.innerText = "Join 500+ partners across the globe and start earning high commissions today.";
+                progress.style.display = 'none';
+            } else {
+                progress.style.display = 'none';
+            }
+
+            // Switch Steps
+            document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+            document.getElementById('step-' + step).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function sendOTP() {
+            const btn = document.getElementById('send-otp-btn');
+            const otpWrap = document.getElementById('otp-field-wrap');
+
+            btn.innerText = "Resend";
+            otpWrap.style.display = 'block';
+            alert("A simulation OTP has been sent to your email!");
+        }
+
+        function verifyInlineOTP() {
+            const successMsg = document.getElementById('otp-success-msg');
+            const createBtn = document.getElementById('create-acc-btn');
+            const otpInput = document.getElementById('reg-otp');
+            const verifyBtn = document.getElementById('verify-otp-btn');
+
+            if (otpInput.value.length === 6) {
+                successMsg.style.display = 'block';
+                createBtn.disabled = false;
+                createBtn.style.opacity = '1';
+                createBtn.style.cursor = 'pointer';
+
+                // Lock fields
+                document.getElementById('reg-email').readOnly = true;
+                otpInput.readOnly = true;
+                verifyBtn.style.display = 'none';
+            } else {
+                alert("Please enter a valid 6-digit OTP");
+            }
+        }
+
+        function submitApp() {
+            nextStep(4);
+            document.getElementById('progress-container').style.display = 'none';
+            document.getElementById('step-title').innerText = "Welcome Aboard";
+            document.getElementById('step-desc').innerText = "Your journey with Biz Partner Hub starts here.";
+
+            // Show the dashboard button in the header
+            const successActions = document.getElementById('success-actions');
+            successActions.style.display = 'flex';
+
+            // Hide the form steps completely to focus on the welcome message
+            document.getElementById('registrationForm').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
