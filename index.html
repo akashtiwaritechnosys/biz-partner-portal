@@ -125,98 +125,123 @@
       </div>
 
       <div class="dashboard-card">
-        <div class="dashboard-header">
-          <div class="logo">Biz Partner Hub</div>
-          <div class="nav">
-            <a href="#" class="nav-active">Dashboard</a>
-            <a href="#">Orders</a>
-            <a href="#">Leads</a>
-            <a href="#">Clients</a>
-            <a href="#">Payouts</a>
-          </div>
-        </div>
+  <div class="dashboard-header">
+    <div class="logo">Biz Partner Hub</div>
 
-        <div class="dashboard-grid">
-          <div>
-            <div class="card welcome">
-              <h3>Welcome in,<br> Caroline</h3>
-              <p style="color: rgba(255,255,255,0.6); margin-top: 8px;">Critical alerts and active incident monitoring.
-              </p>
+    <!-- Tabs Navigation -->
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="openTab('dashboard')">Dashboard</button>
+      <button class="tab-btn" onclick="openTab('orders')">Orders</button>
+      <button class="tab-btn" onclick="openTab('leads')">Leads</button>
+      <!-- <button class="tab-btn" onclick="openTab('clients')">Clients</button> -->
+      <button class="tab-btn" onclick="openTab('payouts')">Payouts</button>
+    </div>
+  </div>
 
-              <div class="mini-bars">
-                <div>
-                  <small>Critical alerts</small>
-                  <div class="bar">
-                    <div class="fill" style="width: 28%"></div>
-                  </div>
-                </div>
-                <div>
-                  <small>Resolved cases</small>
-                  <div class="bar">
-                    <div class="fill" style="width: 60%"></div>
-                  </div>
-                </div>
-                <div>
-                  <small>Tickets closed</small>
-                  <div class="bar">
-                    <div class="fill" style="width: 82%"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+  <!-- Dashboard Tab -->
+  <div id="dashboard" class="tab-content active">
+    <div class="dashboard-grid">
+      <div>
+        <div class="card welcome">
+          <h3>Welcome in,<br> Caroline</h3>
+          <p style="color: rgba(255,255,255,0.6); margin-top: 8px;">
+            Critical alerts and active incident monitoring.
+          </p>
 
-          <div class="card graph-card">
-            <div class="stats">
-              <div class="stat">
-                <h4>38</h4>
-                <p>Critical Issues</p>
-              </div>
-              <div class="stat">
-                <h4>26</h4>
-                <p>Open Alerts</p>
-              </div>
-              <div class="stat">
-                <h4>103</h4>
-                <p>Resolved</p>
+          <div class="mini-bars">
+            <div>
+              <small>Critical alerts</small>
+              <div class="bar">
+                <div class="fill" style="width: 28%"></div>
               </div>
             </div>
 
-            <div class="graph">
-              <svg viewBox="0 0 800 240" preserveAspectRatio="none">
-                <path d="M0 170 C80 60, 140 210, 220 120 C320 10, 400 210, 500 140 C600 80, 700 180, 800 110"
-                  fill="none" stroke="#ff4d8d" stroke-width="4" />
-
-                <path d="M0 80 C80 170, 160 50, 260 140 C360 230, 460 60, 560 120 C660 170, 720 40, 800 100" fill="none"
-                  stroke="#7c7eff" stroke-width="4" />
-              </svg>
-            </div>
-          </div>
-
-          <div class="side-widget">
-            <div class="alert-box">
-              <div>
-                <h4>Vulnerability</h4>
-                <p>
-                  Encryption issue has been detected in cloud infrastructure. Requires immediate review.
-                </p>
+            <div>
+              <small>Resolved cases</small>
+              <div class="bar">
+                <div class="fill" style="width: 60%"></div>
               </div>
+            </div>
 
-              <div>
-                <div class="badge">
-                  <span>Priority</span>
-                  <strong>3</strong>
-                </div>
-
-                <div class="badge">
-                  <span>Threat</span>
-                  <strong>High</strong>
-                </div>
+            <div>
+              <small>Tickets closed</small>
+              <div class="bar">
+                <div class="fill" style="width: 82%"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="card graph-card">
+        <div class="stats">
+          <div class="stat">
+            <h4>38</h4>
+            <p>Critical Issues</p>
+          </div>
+          <div class="stat">
+            <h4>26</h4>
+            <p>Open Alerts</p>
+          </div>
+          <div class="stat">
+            <h4>103</h4>
+            <p>Resolved</p>
+          </div>
+        </div>
+
+        <div class="graph">
+          <svg viewBox="0 0 800 240" preserveAspectRatio="none">
+            <path d="M0 170 C80 60, 140 210, 220 120 C320 10, 400 210, 500 140 C600 80, 700 180, 800 110"
+              fill="none" stroke="#ff4d8d" stroke-width="4" />
+
+            <path d="M0 80 C80 170, 160 50, 260 140 C360 230, 460 60, 560 120 C660 170, 720 40, 800 100"
+              fill="none" stroke="#7c7eff" stroke-width="4" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="side-widget">
+        <div class="alert-box">
+          <div>
+            <h4>Vulnerability</h4>
+            <p>
+              Encryption issue has been detected in cloud infrastructure.
+            </p>
+          </div>
+
+          <div>
+            <div class="badge">
+              <span>Priority</span>
+              <strong>3</strong>
+            </div>
+
+            <div class="badge">
+              <span>Threat</span>
+              <strong>High</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Other Tabs -->
+  <div id="orders" class="tab-content">
+    <h2>Orders Content</h2>
+  </div>
+
+  <div id="leads" class="tab-content">
+    <h2>Leads Content</h2>
+  </div>
+
+  <!-- <div id="clients" class="tab-content">
+    <h2>Clients Content</h2>
+  </div> -->
+
+  <div id="payouts" class="tab-content">
+    <h2>Payouts Content</h2>
+  </div>
+</div>
     </div>
   </section>
 
@@ -361,7 +386,7 @@
             </div>
           </div>
         </div>
-        <a href="#" class="btn btn-primary">Browse Library</a>
+        <!-- <a href="#" class="btn btn-primary">Browse Library</a> -->
       </div>
 
       <div class="enablement-visual">
@@ -437,7 +462,7 @@
           <div class="ring-line ring-line-2"></div>
 
           <div class="chip-core">
-            <span>AI</span>
+            <span>Scale</span>
           </div>
 
           <div class="wire wire-1"></div>
@@ -900,6 +925,27 @@
         alert('Mobile menu navigation would open here');
       });
     });
+
+
+
+
+    function openTab(tabId) {
+    // Hide all tab contents
+    document.querySelectorAll('.tab-content').forEach(tab => {
+      tab.classList.remove('active');
+    });
+
+    // Remove active button
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.classList.remove('active');
+    });
+
+    // Show selected tab
+    document.getElementById(tabId).classList.add('active');
+
+    // Active button
+    event.target.classList.add('active');
+  }
   </script>
 
 </body>
